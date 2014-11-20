@@ -1,3 +1,10 @@
+/*
+* Author:Shushan Chen
+* chssian@gmail.com
+* 21/11/2014
+*/
+
+//Get file names from a directory
 static void getFiles( string path, vector<string>& files )  
 {  
     //нд╪Ч╬Д╠З  
@@ -25,3 +32,34 @@ static void getFiles( string path, vector<string>& files )
         _findclose(hFile);  
     }  
 } 
+
+
+// save data into files
+static void outputData2(string path, vector< vector<double> >& model){
+	ofstream savefile(path);
+	savefile << this->word+"\n";
+	savefile << model.size()+"\n";
+	savefile << model[0].size()+"\n";
+	
+	for(int i=0; i<model.size(); i++){
+		for(int j=0; j<model[i].size(); j++){
+				savefile << model[i][j];
+				savefile << " ";
+		}
+	}
+}
+
+
+static int readFrame(const string &filename)
+{
+
+    ifstream mfcc_in(filename.c_str());
+    int len;
+    mfcc_in>>len;
+    
+	/*
+	* write as above...
+	*/
+    
+    return 0;
+}
