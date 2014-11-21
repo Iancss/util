@@ -4,8 +4,10 @@
 * 21/11/2014
 */
 
+#include "util_css.h"
+
 //Get file names from a directory
-static void getFiles( string path, vector<string>& files )  
+static void util_css::getFiles( string path, vector<string>& files )  
 {  
     //нд╪Ч╬Д╠З  
     long   hFile   =   0;  
@@ -35,7 +37,7 @@ static void getFiles( string path, vector<string>& files )
 
 
 // save data into files
-static void outputData2(string path, vector< vector<double> >& model){
+static void util_css::outputData2(string path, vector< vector<double> >& model){
 	ofstream savefile(path);
 	savefile << this->word+"\n";
 	savefile << model.size()+"\n";
@@ -50,7 +52,7 @@ static void outputData2(string path, vector< vector<double> >& model){
 }
 
 
-static int readFrame(const string &filename)
+static int util_css::readFrame(const string &filename)
 {
 
     ifstream mfcc_in(filename.c_str());
