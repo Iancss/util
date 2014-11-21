@@ -4,19 +4,26 @@
 * 21/11/2014
 */
 
-#include <iosteream>
+#include <iostream>
 #include <string.h>
+#include <fstream>
 #include <vector>
+#include <io.h>
+
+using namespace std;
 
 class util_css{
 	public:
 		//Get file names from a directory
-		static void getFiles(string path, vector<string>& files);
+		void getFiles(string path, vector<string>& files);
 		
 		// save data into files
-		static void outputData2(string path, vector< vector<double> >& model);
+		void outputData2(string path, vector< vector<double> >& model);
 		
 		// read the file
-		static int readFile(const string &filename);
+		int readFile(const string &filename);
+		
+		// trim the string
+		void trim(string & str);
 	private:
 };

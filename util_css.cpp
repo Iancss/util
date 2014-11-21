@@ -6,8 +6,10 @@
 
 #include "util_css.h"
 
+using namespace std;
+
 //Get file names from a directory
-static void util_css::getFiles( string path, vector<string>& files )  
+void util_css::getFiles( string path, vector<string>& files )  
 {  
     //ÎÄ¼þ¾ä±ú  
     long   hFile   =   0;  
@@ -37,9 +39,8 @@ static void util_css::getFiles( string path, vector<string>& files )
 
 
 // save data into files
-static void util_css::outputData2(string path, vector< vector<double> >& model){
+void util_css::outputData2(string path, vector< vector<double> >& model){
 	ofstream savefile(path);
-	savefile << this->word+"\n";
 	savefile << model.size()+"\n";
 	savefile << model[0].size()+"\n";
 	
@@ -52,7 +53,7 @@ static void util_css::outputData2(string path, vector< vector<double> >& model){
 }
 
 
-static int util_css::readFrame(const string &filename)
+int util_css::readFile(const string &filename)
 {
 
     ifstream mfcc_in(filename.c_str());
@@ -64,4 +65,9 @@ static int util_css::readFrame(const string &filename)
 	*/
     
     return 0;
+}
+
+void util_css::trim(string& str){
+	str.erase(str.find_last_of(' ') + 1, string::npos);    //È¥µô×Ö·û´®Ä©Î²¿Õ¸ñ  
+	str.erase(0, str.find_first_of(' '));    //È¥µô×Ö·û´®Ê×¿Õ¸ñ 
 }
