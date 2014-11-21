@@ -68,6 +68,9 @@ int util_css::readFile(const string &filename)
 }
 
 void util_css::trim(string& str){
-	str.erase(str.find_last_of(' ') + 1, string::npos);    //È¥µô×Ö·û´®Ä©Î²¿Õ¸ñ  
-	str.erase(0, str.find_first_of(' '));    //È¥µô×Ö·û´®Ê×¿Õ¸ñ 
+	while(str[0] == ' ') // delete the spaces in the begining
+		str.erase(0,1);
+	
+	while(str[str.length()-1] == ' ') // delete the space in the end
+		str.erase(str.length()-1,1);
 }
