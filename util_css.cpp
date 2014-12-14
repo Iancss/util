@@ -37,6 +37,28 @@ void util_css::getFiles( string path, vector<string>& files )
     }  
 } 
 
+// Can be used on any platform
+int util_css::getFiles2(string path, vector<string>& files ){
+	DIR* dirp;
+    struct dirent* direntp;
+	dirp = opendir( path );
+    if( dirp != NULL ) {
+        for(;;) {
+            direntp = readdir( dirp );
+            if( direntp == NULL ) break;
+			if(direntp->d_name[0] == '.') continue;
+            files.push_back(direntp->d_name);
+        }
+        closedir( dirp );
+		
+		for(int i=0; i<files.size(); i++)
+			cout << files[i] << endl;
+		
+        return EXIT_SUCCESS;
+    }
+    return EXIT_FAILURE;
+}
+
 
 // save data into files
 void util_css::outputData2(string path, vector< vector<double> >& model){

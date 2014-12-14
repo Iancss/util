@@ -14,8 +14,11 @@ using namespace std;
 
 class util_css{
 	public:
-		//Get file names from a directory
+		//Get file names from a directory, but need to be used on Windows
 		void getFiles(string path, vector<string>& files);
+		
+		// Can be used on any platform
+		int getFiles2(string path, vector<string>& files);
 		
 		// save data into files
 		void outputData2(string path, vector< vector<double> >& model);
