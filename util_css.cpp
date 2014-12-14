@@ -41,7 +41,7 @@ void util_css::getFiles( string path, vector<string>& files )
 int util_css::getFiles2(string path, vector<string>& files ){
 	DIR* dirp;
     struct dirent* direntp;
-	dirp = opendir( path );
+	dirp = opendir( path.c_str() );
     if( dirp != NULL ) {
         for(;;) {
             direntp = readdir( dirp );
